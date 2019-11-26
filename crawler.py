@@ -8,9 +8,9 @@ import spotipy.util as util
 #$env:SPOTIPY_CLIENT_SECRET="5a312dc3c53a4249a46a557accc22ac9"
 #$env:SPOTIPY_CLIENT_ID="4f657b938eed4221b0a27491a8291ff4"
 '''
-util.prompt_for_user_token('aly5321', 'user-follow-read', 
-    client_id = '4f657b938eed4221b0a27491a8291ff4',
-    client_secret = '5a312dc3c53a4249a46a557accc22ac9',
+util.prompt_for_user_token('vhagi4rl4jn7rwmtzm61ohixx', 'user-library-read', 
+    client_id = '352752c21e5344f7b1e32cb88b43d5b1',
+    client_secret = '7325c1cc61e149bc9601f3031d602ce4',
     redirect_uri = 'https://www.spotify.com/us/')
 '''
 
@@ -28,6 +28,43 @@ def init_artist_ids():
     artist_ids['Zayn Malik'] = 8
     artist_ids['Demi Lovato'] = 9
     artist_ids['Grey'] = 10
+    artist_ids['Khalid'] = 11
+    artist_ids['KAMAUU'] = 12
+    artist_ids['Kanye West'] = 13
+    artist_ids['Mýa'] = 14
+    artist_ids['Stephanie Poetri'] = 15
+    artist_ids['The Cab'] = 16
+    artist_ids['88rising'] = 17
+    artist_ids['CHUNG HA'] = 18
+    artist_ids['Allan Kingdom'] = 19
+    artist_ids['ROMderful'] = 20
+    artist_ids['RINI'] = 21
+    artist_ids['Panic! At The Disco'] = 22
+    artist_ids['Vulfpeck'] = 23
+    artist_ids['UMI'] = 24
+    artist_ids['Jorja Smith'] = 25
+    artist_ids['Jessie Reyez'] = 26
+    artist_ids['BTS'] = 27
+    artist_ids['Jhené Aiko'] = 28
+    artist_ids['Wifisfuneral'] = 29
+    artist_ids['BROCKHAMPTON'] = 30
+    artist_ids['Jaden'] = 31
+    artist_ids['808INK'] = 32
+    artist_ids['Strawberry Girls'] = 33
+    artist_ids['Tsu Surf'] = 34
+    artist_ids['Ginuwine'] = 35
+    artist_ids['Mario Winans'] = 36
+    artist_ids['Tyler, The Creator'] = 37
+    artist_ids['3OH!3'] = 38
+    artist_ids['AFI'] = 39
+    artist_ids['Aminé'] = 40
+    artist_ids['Doja Cat'] = 41
+    artist_ids['Monica'] = 42
+    artist_ids['Cage The Elephant'] = 43
+    artist_ids['Nirvana'] = 44
+    artist_ids['Passion Pit'] = 45
+    artist_ids['alt-J'] = 46
+    artist_ids['Maroon 5'] = 47
 
 def init_album_ids():
     album_ids['5 Seconds of Summer'] = 1
@@ -38,6 +75,49 @@ def init_album_ids():
     album_ids['DAMN'] = 6
     album_ids['Confident'] = 7
     album_ids['Grey'] = 8
+    album_ids['American Teen'] = 9
+    album_ids['A Gorgeous Fortune EP'] = 10
+    album_ids['JESUS IS KING'] = 11
+    album_ids['Moodring'] = 12
+    album_ids['I Love You 3000'] = 13
+    album_ids['Symphony Soldier'] = 14
+    album_ids['Whisper War'] = 15
+    album_ids['Head In The Clouds II'] = 16
+    album_ids['Gotta Go'] = 17
+    album_ids['Flourishing'] = 18
+    album_ids['LINES'] = 19
+    album_ids['SummerTimeTing (feat. Mayzin, Emmavie & KayFaraway)'] = 20
+    album_ids['For the Last Time (feat. Snaggle Owky)'] = 21
+    album_ids['Vices & Virtues'] = 22
+    album_ids['Thrill of the Arts'] = 23
+    album_ids['FRIENDZONE'] = 24
+    album_ids['Lost & Found'] = 25
+    album_ids['The One'] = 26
+    album_ids['Be Honest (feat. Burna Boy) (acoustic)'] = 27
+    album_ids['CRAZY'] = 28
+    album_ids['MAP OF THE SOUL : PERSONA'] = 29
+    album_ids['None Of Your Concern'] = 30
+    album_ids['run?'] = 31
+    album_ids['SATURATION'] = 32
+    album_ids['SYRE'] = 33
+    album_ids['When I'm About, You'll Know, Pt. 2'] = 34
+    album_ids['American Graffiti'] = 35
+    album_ids['Newark Mixtape'] = 36
+    album_ids['The Life'] = 37
+    album_ids['Hurt No More'] = 38
+    album_ids['IGOR'] = 39
+    album_ids['WANT'] = 40
+    album_ids['DECEMBERUNDERGROUND'] = 41
+    album_ids['ONEPOINTFIVE'] = 42
+    album_ids['Juicy'] = 43
+    album_ids['Commitment'] = 44
+    album_ids['Melophobia'] = 45
+    album_ids['Nevermind (Remastered)'] = 46
+    album_ids['Gossamer'] = 47
+    album_ids['This Is All Yours'] = 48
+    album_ids['Be Honest (feat. Burna Boy)'] = 49
+    album_ids['Songs About Jane'] = 50
+
 
 #artist = name, id_ = spotify's artist id, not our artist id
 def get_artist_id(artist, id_):
@@ -89,7 +169,7 @@ albums = []
 
 if token:
     sp = spotipy.Spotify(auth=token)
-    results = sp.current_user_saved_tracks(limit=20)
+    results = sp.current_user_saved_tracks(limit=50)
     for item in results['items']:
         track = item['track']
         track_id = track['id']
