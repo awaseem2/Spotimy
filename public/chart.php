@@ -2,6 +2,20 @@
  require_once('MongoDB/Charts.php');
  use \MongoDB\Charts;
 
+$m = new MongoClient(); // connect
+//mongo query:
+$db = $m->selectDB("let list = db.Spotimy.find({position: {$gte:1}}, {position: {$lte: 200}]})
+let alist = [];
+while (list.hasNext()) {
+    let arr = list.next().country;
+    for (i = 0; i < arr.length; i++) {
+        let temp = alist.push(arr[i]);
+    }
+}
+db.Actors.find({track_name:{$in:alist}},{track_rank:1,country:1,_id:0})");
+ require_once('MongoDB/Charts.php');
+ use \MongoDB\Charts;
+
 $mysqli = new mysqli("localhost", "spotimyapp_user1", "chiefonion212", "spotimyapp_db");
 
 if ($mysqli->connect_errno) {
@@ -25,6 +39,12 @@ $track = $_POST["track_name"];
     $row = $search_result->fetch_assoc();
     $name = $track . " by " . $row['Artist_Name'];
  } else {
+     $sql = "SELECT Artist_Name FROM `Artist` WHERE Artist_Name LIKE '" . $name . "%'";
+        $search_result = $mysqli->query($sql);
+        $row = $search_result->fetch_assoc();
+        $name = $row['Artist_Name'];
+        
+        
       $filter = '{"artist" : {$regex:"^'.$_POST["top_artist"].'", $options: "i"}}';
  }
  //print(str/empty($encode));
