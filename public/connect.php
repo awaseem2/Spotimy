@@ -8,14 +8,7 @@ if ($mysqli->connect_errno) {
 $q = $_GET["q"];
 $q1 = $_GET["q1"];
 
-$url = "<a href = \"user_index.html\"><button style=\"float: right;\" class=\"btn\"><i class=\"fa fa-home\"></i> Home</button></a>";
-if ($q1 || count($q) === 0) {
-    $q = $q1;
-    $url = "<a href = \"index.html\"><button style=\"float: right;\" class=\"btn\"><i class=\"fa fa-home\"></i> Home</button></a>";
-}
-
 $attr = $_GET["attr"];
-//$url = $_GET["attr"];
 if($attr == "Song Name"){
     $sql = "SELECT s.Song_Name, a.Artist_Name, s.Song_ID as Song_ID
     FROM Song s
@@ -35,13 +28,6 @@ print("<head>
     <link rel=\"icon\" href=\"assets/images/logo1.png\">
 </head>");
 print("<body>");
-/*print("<table width=\"100%\" border=\"1\" cellpadding=\"10\">
-    <tr>
-        <td  align=\"center\">
-        <h1>Songs</h1>
-        </td>
-    </tr> ");*/
-print($url);
 print("<table align=\"center\" style=\"width: 95%;\">
         <thead> ");
         $num_rows = $search_result->num_rows;
