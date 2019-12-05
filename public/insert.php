@@ -6,14 +6,10 @@ if ($mysqli->connect_errno) {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 }
 
-$url = "<a href = \"user_index.html\"><button style=\"float: right;\" class=\"btn\"><i class=\"fa fa-home\"></i> Home</button></a>";
-
-$fav_artist_sql = "INSERT INTO Artist (Artist_Name) VALUES ('".$_POST["fav_artist"]."')";
-$fav_artist_sql1 = "INSERT INTO Artist (Artist_Name) VALUES ('".$_POST["fav_artist1"]."')";
+$fav_artist_sql = "INSERT INTO Artist (Artist_Name) VALUES ('".$_POST["fav_artist1"]."')";
 
 if (count($_POST["fav_artist1"]) > 0) {
     $url = "<a href = \"index.html\"><button style=\"float: right;\" class=\"btn\"><i class=\"fa fa-home\"></i> Home</button></a>";
-    $fav_artist_sql = $fav_artist_sql1;
 }
 
 print("<head>
