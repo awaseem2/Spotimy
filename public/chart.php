@@ -1,4 +1,20 @@
 <?php
+
+$m = new MongoClient(); // connect
+
+//mongo query:
+$db = $m->selectDB("let list = db.Spotimy.find({position: {$gte:1}}, {position: {$lte: 200}]})
+let alist = [];
+while (list.hasNext()) {
+    let arr = list.next().country;
+    for (i = 0; i < arr.length; i++) {
+        let temp = alist.push(arr[i]);
+
+    }
+}
+db.Actors.find({track_name:{$in:alist}},{track_rank:1,country:1,_id:0})");
+
+
  require_once('MongoDB/Charts.php');
  use \MongoDB\Charts;
 
