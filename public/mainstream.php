@@ -4,21 +4,6 @@ if ($mysqli->connect_errno) {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 }
 
-$correct_username = $mysqli->query("SELECT COUNT(*) FROM User WHERE '".$_POST["user"]."' = (SELECT Song_ID FROM User WHERE User_ID = 'admin')");
-$row0 = mysqli_fetch_row($correct_username);
-$can_change = $row0[0];
-
-if($can_change == 0){
-    echo'
-   <script>
-   window.onload = function() {
-      alert("Please enter your username.");
-      location.href = "user_index.html";  
-   }
-   </script>
-';
-} else {
-
 $user_id = $mysqli->query("SELECT COUNT(s.Song_ID)
 FROM Song s 
 INNER JOIN Artist a ON s.Artist_ID = a.Artist_ID
@@ -55,6 +40,5 @@ print("<br/>");
     } else {
         print("<h3 class = \"msg\" align=\"center\">Please recheck your searching criteria!</h3>");
     }
-}
 $mysqli->close();
 ?>
