@@ -27,10 +27,10 @@ ORDER BY genre_count ) as song_genre
 GROUP BY genre_name 
 HAVING MAX(genre_count) 
 ORDER BY MAX(genre_count) DESC LIMIT 1)
-AND Song_Tempo BETWEEN (SELECT AVG(U.Song_Tempo) - 25 FROM Song) AND (SELECT AVG(Song_Tempo) + 25 FROM Song)
-OR Song_Danceability BETWEEN (SELECT AVG(U.Song_Danceability) -.2 FROM Song) AND (SELECT AVG(Song_Danceability) +.2 FROM Song)
-OR Song_Acoustics BETWEEN (SELECT AVG(U.Song_Acoustics) -.2 FROM Song) AND (SELECT AVG(Song_Acoustics) +.2 FROM Song)
-OR Song_Energy BETWEEN (SELECT AVG(U.Song_Energy) -.2 FROM Song) AND (SELECT AVG(Song_Energy) +.2 FROM Song)
+AND Song_Tempo BETWEEN (SELECT AVG(U.Song_Tempo) - 25 FROM Song) AND (SELECT AVG(U.Song_Tempo) + 25 FROM Song)
+OR Song_Danceability BETWEEN (SELECT AVG(U.Song_Danceability) -.2 FROM Song) AND (SELECT AVG(U.Song_Danceability) +.2 FROM Song)
+OR Song_Acoustics BETWEEN (SELECT AVG(U.Song_Acoustics) -.2 FROM Song) AND (SELECT AVG(U.Song_Acoustics) +.2 FROM Song)
+OR Song_Energy BETWEEN (SELECT AVG(U.Song_Energy) -.2 FROM Song) AND (SELECT AVG(U.Song_Energy) +.2 FROM Song)
 ORDER BY rand()
 LIMIT 20
 GO;
