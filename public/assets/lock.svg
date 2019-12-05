@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512px" height="512px"><g><g>
+	<g>
+		<g>
+			<path d="M384,160c0-70.692-57.308-128-128-128S128,89.308,128,160v48H96v272h320V208h-32V160z M160,160c0-53.019,42.981-96,96-96     s96,42.981,96,96v48H160V160z M384,448H128V240h256V448z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
+			<rect x="240" y="272" width="32" height="32" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
+			<rect x="240" y="336" width="32" height="80" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
+			<rect y="208" width="64" height="32" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
+			<rect y="272" width="32" height="32" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
+			<rect y="336" width="64" height="32" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
+			<rect y="400" width="32" height="32" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
+			<rect x="448" y="208" width="64" height="32" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
+			<rect x="480" y="272" width="32" height="32" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
+			<rect x="448" y="336" width="64" height="32" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
+			<rect x="480" y="400" width="32" height="32" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
+		</g>
+	</g>
+</g></g> </svg>
