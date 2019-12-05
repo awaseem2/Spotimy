@@ -1,35 +1,31 @@
 <?php
-
-$m = new MongoClient(); // connect
-
-//mongo query:
-$db = $m->selectDB("let list = db.Spotimy.find({position: {$gte:1}}, {position: {$lte: 200}]})
-let alist = [];
-while (list.hasNext()) {
-    let arr = list.next().country;
-    for (i = 0; i < arr.length; i++) {
-        let temp = alist.push(arr[i]);
-
-    }
-}
-db.Actors.find({track_name:{$in:alist}},{track_rank:1,country:1,_id:0})");
-
-
  require_once('MongoDB/Charts.php');
  use \MongoDB\Charts;
+
+$mysqli = new mysqli("localhost", "spotimyapp_user1", "chiefonion212", "spotimyapp_db");
+
+if ($mysqli->connect_errno) {
+    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+}
 
  $embeddingKey = 'd200702a84da4634';
  $baseUrl = 'https://charts.mongodb.com/charts-project-0-dkxvh'; // Replace with the base URL to your Charts instance, e.g. https://charts.mongodb.com/charts-foo-abcde (no trailing slash)
  $tenantId = '7826f34a-3b7c-4ae5-8480-64e3669d072b'; // Replace with your Charts Tenant ID from the Embed Chart snippet
  $chartId = '2c2c5942-94e1-4743-98e0-be83803d5df0'; //Chart Id to Embed
  //$filter = '{"track_name": "'.$encode.'"}';
- $name = $_POST["track_name"];
+ 
+$name = $_POST["top_artist"];
+$track = $_POST["track_name"];
  if (empty($_POST["top_artist"])) {
     $filter = '{"track_name" : {$regex:"^'.$_POST["track_name"].'", $options: "i"}}';
+    
+    //query for artist given track
+    $sql = "SELECT Artist_Name FROM `Song`, `Artist` WHERE Artist.Artist_ID = Song.Artist_ID AND Song.Song_Name = 'Circles';";
+    $search_result = $mysqli->query($sql);
+    $row = $search_result->fetch_assoc();
+    $name = $track . " by " . $row['Artist_Name'];
  } else {
       $filter = '{"artist" : {$regex:"^'.$_POST["top_artist"].'", $options: "i"}}';
-      $name = $_POST["top_artist"];
-    //$filter = '{"artist" : "'.$_POST["top_artist"].'"}';
  }
  //print(str/empty($encode));
  
