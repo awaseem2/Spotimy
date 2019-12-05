@@ -24,7 +24,8 @@ print(
     Username:
     <input type=\"text\" name=\"userid\"/> <br/>
     Password:&nbsp
-    <input type=\"password\" name=\"pwd\" /> <br/>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+            name="password" value="{{request.form.password}}">
     <input class = \"submit\" onclick=\"return check(this.form)\" type=\"submit\" name = \"Login\" value=\"Login\" /><br/> <br/>
 </form>
 <div class=\"container\">
@@ -36,8 +37,7 @@ print(
 print("</td></tr></table> 
 <script language=\"javascript\">
 function check(form){
-    if((form.userid.value == \"aly5321\" && form.pwd.value == \"alypw123\") || (form.userid.value == \"rushaishik\" && form.pwd.value == \"leaguegg\") ||(form.userid.value == \"suhirtha99\" && form.pwd.value == \"louis99\") ||(form.userid.value == \"vhagi4rl4jn7rwmtzm61ohixx\" && form.pwd.value == \"abdu123\") 
-        ||(form.userid.value == \"21xbdkmep6rw3ao5wrikzpg4a\" && form.pwd.value == \"password\")){
+    if(form.userid.value == encrypt.user && form.pwd.value == encrypt.password){
         return true;
     }else{
     	alert(\"Error: Wrong username and/or password\")
