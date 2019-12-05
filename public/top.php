@@ -6,21 +6,6 @@ if ($mysqli->connect_errno) {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 }
 
-$correct_username = $mysqli->query("SELECT COUNT(*) FROM User WHERE '".$_POST["user"]."' = (SELECT Song_ID FROM User WHERE User_ID = 'admin')");
-$row0 = mysqli_fetch_row($correct_username);
-$can_change = $row0[0];
-
-if($can_change == 0){
-    echo'
-   <script>
-   window.onload = function() {
-      alert("Please enter your username.");
-      location.href = "user_index.html";  
-   }
-   </script>
-';
-} else {
-
 $top_genre = "SELECT genre_name, genre_count
 FROM (SELECT s.Song_Genre genre_name, COUNT(s.Song_Genre) genre_count 
 FROM Song s 
@@ -162,6 +147,5 @@ print("<table align=\"center\" style=\"width: 95%;\">
 print("</table> <br/><br/>");
 
 print("</body>");
-}
 $mysqli->close();
 ?>
