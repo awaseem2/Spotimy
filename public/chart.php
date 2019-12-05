@@ -34,10 +34,13 @@ $track = $_POST["track_name"];
     $filter = '{"track_name" : {$regex:"^'.$_POST["track_name"].'", $options: "i"}}';
     
     //query for artist given track
-    $sql = "SELECT Artist_Name FROM `Song`, `Artist` WHERE Artist.Artist_ID = Song.Artist_ID AND Song.Song_Name = 'Circles';";
+    $sql = "SELECT Artist_Name FROM `Song`, `Artist` WHERE Artist.Artist_ID = Song.Artist_ID AND Song.Song_Name = '" . $track . "';";
     $search_result = $mysqli->query($sql);
     $row = $search_result->fetch_assoc();
-    $name = $track . " by " . $row['Artist_Name'];
+    if (empty($row['Artist_Name'])) {
+        $name = $track;
+    }
+    else { $name = $track . " by " . $row['Artist_Name']; }
  } else {
      $sql = "SELECT Artist_Name FROM `Artist` WHERE Artist_Name LIKE '" . $name . "%'";
         $search_result = $mysqli->query($sql);
