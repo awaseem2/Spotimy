@@ -7,6 +7,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="assets/images/logo1.png">
 <!-- 
 OneTel Template
 http://www.templatemo.com/tm-468-onetel
@@ -20,7 +21,6 @@ http://www.templatemo.com/tm-468-onetel
 	<!-- google web font css -->
 	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 	<link rel="icon" href="assets/images/logo1.png">
-
 </head>
 <body>
 	
@@ -34,7 +34,7 @@ http://www.templatemo.com/tm-468-onetel
 			<div class="col-md-7 col-sm-9" align = "center">
 				<h1 class="welcome">Welcome to Spotimy.</h1>
 				<form action="login.php" method="post">
-                    <input class = "loginbutton" type="submit" name = "submit" value="login" />
+                    <input class = "loginbutton" type="submit" name = "submit" value="signout" />
                 </form>
 			</div>
 		</div>
@@ -53,7 +53,7 @@ http://www.templatemo.com/tm-468-onetel
                         <p>
                             <input type="radio" name="attr" value="Song Name" checked/> Song Name<br/>
                             <input type="radio" name="attr" value="Artist Name" /> Artist Name<br/> <br/>
-                            <input class = "tb1" type="text" style="border:.5px solid #000000;" name="q1" placeholder = " Search for" /><br/> <br/>
+                            <input class = "tb1" type="text" style="border:.5px solid #000000;" name="q" placeholder = " Search for" /><br/> <br/>
                 			<input class = "submit" type="submit" name = "submit" value="Search" /><br/>
                         </p>
                     </form>
@@ -65,10 +65,10 @@ http://www.templatemo.com/tm-468-onetel
 				    <h2>Find songs based on your mood:</h2>
 					<form action="mood.php" method="get">
                         <p>
-                            <input type="radio" name="attr1" value="Happy" checked/> Happy<br/>
-                            <input type="radio" name="attr1" value="Sad"/> Sad <br/>
-                            <input type="radio" name="attr1" value="Mad"/> Mad<br/>
-                            <input type="radio" name="attr1" value="Excited"/> Excited<br/><br>
+                            <input type="radio" name="attr" value="Happy" checked/> Happy<br/>
+                            <input type="radio" name="attr" value="Sad"/> Sad <br/>
+                            <input type="radio" name="attr" value="Mad"/> Mad<br/>
+                            <input type="radio" name="attr" value="Excited"/> Excited<br/><br>
                             <input class = "submit" type="submit" value="Submit">
                         </p>
                     </form>
@@ -80,7 +80,7 @@ http://www.templatemo.com/tm-468-onetel
                     <h2>Add your favorite artist:</h2>
                 	<form action="insert.php" method="post">
                         <p>
-                            <input class = "tb1" style="border:.5px solid #000000;" type="text" name="fav_artist1" placeholder = " Artist name"/><br/><br/>
+                            <input class = "tb1" type="text" name="fav_artist" placeholder = " Artist name" style="border:.5px solid #000000;"/><br/><br/>
                             <input class = "submit" type="submit" value="Submit" /> <br/>
                         </p>
                     </form>
@@ -94,7 +94,7 @@ http://www.templatemo.com/tm-468-onetel
                     <h2>Remove your least favorite artist:</h2>
                     <form action="delete.php" method="post">
                         <p>
-                            <input class = "tb1" style="border:.5px solid #000000;" name="bad_artist1" type="text" placeholder = " Artist name"/> <br/> <br/>
+                            <input class = "tb1"  name="bad_artist" type="text" placeholder = " Artist name" style="border:.5px solid #000000;"/> <br/> <br/>
                             <input class = "submit" type="submit" value="Submit"/> <br/>
                         </p>
                     </form>
@@ -106,7 +106,7 @@ http://www.templatemo.com/tm-468-onetel
                     <h2>Update your favorite artist's popularity</h2>
                     <form action="update.php" method="post">
                         <p>
-                            <input class = "tb1" style="border:.5px solid #000000;" type="text" name="artist1" placeholder=" Artist Name" /> <br/> <br/>
+                            <input class = "tb1" type="text" name="artist" placeholder=" Artist Name" style="border:.5px solid #000000;" /> <br/> <br/>
                             Enter a number from 0 to 100, where 100 represents a very popular artist. <br/> <br/>
                             <input class = "num" type="number" name="artist_popularity" min="0" max="100" placeholder=" 0-100" style="border:.5px solid #000000;"> <br/> <br/>
                             <input class = "submit" type="submit" value="Submit"/> <br/>
@@ -116,11 +116,50 @@ http://www.templatemo.com/tm-468-onetel
             </div>
             <div class="col-md-4 col-sm-12">
                 <div class="divider-wrapper divider-one">
-                    <img class = "divicons" src = "assets/images/lock.svg" alt="video player icon">
-                    <h2>Login to view even more fun features!</h2> <br/>
-                    <form action="login.php" method="post">
+                    <img class = "divicons" src = "assets/images/clock.svg" alt="search icon">
+                    <h2>Enter your username to find out what time you listen to music most:</h2>
+                    <form action="time.php" method="post">
                         <p>
-                            <input class = "submit" type="submit" value="Login"/> <br/>
+                            <input class = "tb1" type="text" style="border:.5px solid #000000;" name="user2" placeholder = " username" /> <br/> <br/>
+                            <input class = "submit" type="submit" value="Submit" /> <br/>
+                        </p>
+                    </form>
+                </div>
+            </div>
+    	</div>
+    	<div class="row">
+    	    <div class="col-md-4 col-sm-6">
+                <div class="divider-wrapper divider-three">
+                    <img class = "divicons" src = "assets/images/popularity.svg" alt="pitchfork icon">
+                    <h2>Enter your username to see how mainstream your music taste is:</h2>
+                    <form action="mainstream.php" method="post">
+                        <p>
+                            <input type="text" class = "tb1" name="user" placeholder = " username" style="border:.5px solid #000000;" /> <br/> <br/>
+                            <input type="submit" class = "submit" value="Submit" /> <br/>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="divider-wrapper divider-one">
+                    <img class = "divicons" src = "assets/images/playlist2.svg" alt="video player icon">
+                    <h2>Enter your username to get a recommendation playlist:</h2>
+                    <form action="recommendation.php" method="post">
+                        <p>
+                            <input type="text" class = "tb1" name="user" placeholder = " username" style="border:.5px solid #000000;" /> <br/> <br/>
+                            <input type="submit" class = "submit" value="Submit" /> <br/>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="divider-wrapper divider-two">
+                    <img class = "divicons" src = "assets/images/ranking.svg" alt="search icon">
+                    <h2>Enter your username to find out your most listened to genres, artists, and albums:</h2>
+                    <form action="top.php" method="post">
+                        <p>
+                            <input type="text" class = "tb1" name="user" placeholder = " username" style="border:.5px solid #000000;" /> <br/> <br/>
+                            <input type="submit" class = "submit" value="Submit" /> <br/>
                         </p>
                     </form>
                 </div>
@@ -146,7 +185,10 @@ http://www.templatemo.com/tm-468-onetel
 		    </div>
 		</div>
 	</div>    
-</div>	
+</div>
+
+<!-- about section -->
+
 
 <!-- team section -->
 <div id="team">
@@ -178,7 +220,7 @@ http://www.templatemo.com/tm-468-onetel
 			<div class="col-md-4 col-sm-4 col-xs-9">
 				<div class="team-wrapper">
 					<img src="assets/images/crew_suhi.png" class="img-responsive" alt="team img">
-					<h3><a href = test_chart.html>Suhirtha</a></h3>
+					<h3>Suhirtha</h3>
 					<h4>Frontend Developer</h4>
 					<p>Worked on front end, basic functions, and advanced function 2.</p>
 				</div>
