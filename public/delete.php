@@ -5,23 +5,10 @@ $username = "spotimyapp_user1";
 $password = "chiefonion212";
 $dbname = "spotimyapp_db";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-
-$url = "<a href = \"user_index.html\"><button style=\"float: right;\" class=\"btn\"><i class=\"fa fa-home\"></i> Home</button></a>";
+$url = "<a href = \"index.html\"><button style=\"float: right;\" class=\"btn\"><i class=\"fa fa-home\"></i> Home</button></a>";
 
 // sql to delete an artist
-$sql = "DELETE FROM Artist WHERE lower(Artist_Name) LIKE lower('".$_POST["bad_artist"]."')";
-$sql1 = "DELETE FROM Artist WHERE lower(Artist_Name) LIKE lower('".$_POST["bad_artist1"]."')";
-if (count($_POST["bad_artist1"]) > 0) {
-    $url = "<a href = \"index.html\"><button style=\"float: right;\" class=\"btn\"><i class=\"fa fa-home\"></i> Home</button></a>";
-     $sql = $sql1;
-}
+$sql = "DELETE FROM Artist WHERE lower(Artist_Name) LIKE lower('".$_POST["bad_artist1"]."')";
 
 print("<head>
     <title>Spotimy</title>
