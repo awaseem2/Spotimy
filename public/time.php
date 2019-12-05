@@ -5,21 +5,6 @@ $mysqli = new mysqli("localhost", "spotimyapp_user1", "chiefonion212", "spotimya
 if ($mysqli->connect_errno) {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 }
-
-$correct_username = $mysqli->query("SELECT COUNT(*) FROM User WHERE '".$_POST["user2"]."' = (SELECT Song_ID FROM User WHERE User_ID = 'admin')");
-$row0 = mysqli_fetch_row($correct_username);
-$can_change = $row0[0];
-
-if($can_change == 0){
-     echo'
-   <script>
-   window.onload = function() {
-      alert("Please enter your username.");
-      location.href = "user_index.html";  
-   }
-   </script>
-';
-} else {
     
 $morning = $mysqli->query("SELECT COUNT(User_ID) FROM User WHERE Time > 500 AND Time < 1059 AND User_ID = '".$_POST["user2"]."'");
 $row = mysqli_fetch_row($morning);
@@ -83,7 +68,6 @@ print("<br/>");
         print("</div>");
         
     }
-}
 $mysqli->close();
 
 ?>
