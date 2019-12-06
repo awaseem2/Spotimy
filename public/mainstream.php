@@ -8,7 +8,8 @@ $user_id = $mysqli->query("SELECT COUNT(s.Song_ID)
 FROM Song s 
 INNER JOIN Artist a ON s.Artist_ID = a.Artist_ID
 INNER JOIN User u ON s.Song_ID = u.Song_ID
-WHERE u.User_ID = '".$_POST["user"]."' AND a.Artist_Popularity > 80 AND s.Song_ID IN (SELECT u2.Song_ID FROM User u2 WHERE u2.User_ID <> u.Song_ID);");
+WHERE u.User_ID = '".$_POST["user"]."' AND a.Artist_Popularity > 80 AND 
+s.Song_ID IN (SELECT u2.Song_ID FROM User u2 WHERE u2.User_ID <> u.Song_ID);");
 $row1 = mysqli_fetch_row($user_id);
 $basic_count = $row1[0];
 
