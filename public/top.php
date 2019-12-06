@@ -18,7 +18,8 @@ GROUP BY genre_name
 HAVING MAX(genre_count) 
 ORDER BY MAX(genre_count) DESC";
 
-$top_artist = "SELECT a.Artist_Name as Artist_Name, a.Artist_Genre as Artist_Genre, a.Artist_Popularity as Artist_Popularity, COUNT(a.Artist_ID) as artist_count
+$top_artist = "SELECT a.Artist_Name as Artist_Name, a.Artist_Genre as Artist_Genre, 
+a.Artist_Popularity as Artist_Popularity, COUNT(a.Artist_ID) as artist_count
 FROM Artist a
 INNER JOIN Song s ON a.Artist_ID = s.Artist_ID
 INNER JOIN User u ON s.Song_ID = u.Song_ID
